@@ -1,8 +1,8 @@
 import * as fetch from 'isomorphic-fetch';
 
-export default class TodoListService {
+export default class CourseListService {
 
-  public static getTodos(url) {
+  public static getCourses(url) {
     return new Promise((resolve, reject) => {
       console.log(url);
       fetch(url)

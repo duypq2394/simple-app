@@ -14,6 +14,25 @@ router.get('/items', (req, res, next) => {
   ]);
 });
 
+router.get('/course', (req, res, next) => {
+  res.json([
+    {
+      id: 1,
+      name: 'first',
+      url: 'https://www.youtube.com/watch?v=4Q46xYqUwZQ',
+      fee: '11111',
+      imgUrl: 'https://static1.squarespace.com/static/550ba261e4b0215d222516fe/t/552012fee4b02bbbd561440e/1428165393729/musictheory.jpg?format=1500w'
+    },
+    {
+      id: 2,
+      name: 'second',
+      url: 'https://www.youtube.com/watch?v=4Q46xYqUwZQ',
+      fee: '11111',
+      imgUrl: 'https://static1.squarespace.com/static/550ba261e4b0215d222516fe/t/552012fee4b02bbbd561440e/1428165393729/musictheory.jpg?format=1500w'
+    }
+  ]);
+});
+
 router.get('/todos', (req, res, next) => {
   // Be careful of security when use this headres !!
   res.header('Access-Control-Allow-Origin', '*');

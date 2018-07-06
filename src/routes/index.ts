@@ -3,7 +3,7 @@
 let router = Router();
 
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'React-Express Sample'});
+  res.render('index');
 });
 
 module.exports = function (app: Express) {

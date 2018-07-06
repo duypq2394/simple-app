@@ -1,22 +1,17 @@
+import * as CourseReducer from './course-reducer';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 let promiseMiddleware = require('redux-promise');
 
-import * as TodoReducer from './todo-reducer';
-import * as ProfileReducer  from './profile-reducer';
-
 export const rootReducer = combineReducers({
-  todoState : TodoReducer.reducer,
-  profileState : ProfileReducer.reducer
+  courseState : CourseReducer.reducer,
 });
 
 export type IStore = {
-  todoState: TodoReducer.IState,
-  profileState: ProfileReducer.IState
+  courseState: CourseReducer.IState
 };
 
 export const InitialState: IStore = {
-  todoState : TodoReducer.initialState,
-  profileState : ProfileReducer.initialState
+  courseState : CourseReducer.initialState
 };
 
 export const configureStore = (initialState: IStore = InitialState) => {

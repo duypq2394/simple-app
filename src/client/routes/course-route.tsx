@@ -1,33 +1,30 @@
+import CourseApp from '../apps/course-app';
 import * as React from 'react';
-import { Route, Switch } from 'react-router';
 import { BrowserRouter, StaticRouter } from 'react-router-dom';
-import { renderRoutes } from 'react-router-config';
-import { createBrowserHistory } from 'history';
-import { Provider } from 'react-redux';
-
-import TodoApp from '../apps/todo-app';
-import TodoList from '../views/todo-list';
-import TodoCounter from '../views/todo-counter';
 import { NotFound } from '../views/components/notfound';
+import { renderRoutes } from 'react-router-config';
+import { Provider } from 'react-redux';
 
 export const routes = [
   {
-    path: '/redux',
-    component: TodoApp,
-  }, {
-    path: '/about',
-    component: TodoApp
-  }, {
-    path: '/*',
-    component: NotFound
-  }
+    path: '/',
+    component: CourseApp,
+  },
+  // {
+  //   path: '/course/login',
+  //   component: CourseApp,
+  // },  
+  // {
+  //   path: '/*',
+  //   component: NotFound
+  // }
 ];
 
 export const routeServer = [
-  { component: TodoApp,
+  { component: CourseApp,
     routes: [
-      { path: '/redux',
-        component: TodoApp
+      { path: '/course',
+        component: CourseApp
       }
     ]
   }

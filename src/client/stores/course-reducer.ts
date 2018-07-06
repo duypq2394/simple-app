@@ -1,33 +1,30 @@
 import * as Redux from 'redux';
 import { handleActions, Action } from 'redux-actions';
 import assign = require('object-assign');
-import * as Actions from '../actions/todo-actions';
-import Todo from '../models/todo';
+import * as Actions from '../actions/course-actions';
+import Course from '../models/course';
 
 export type IState = {
   message?: string,
-  todos?: Todo[],
+  courses?: Course[],
   isFetching?: boolean
 };
 
 export const initialState: IState = {
   message: 'Please add items',
-  todos: [],
+  courses: [],
   isFetching: false
 };
 
 const reducers: { [key: string]: (state, action: Action<any>) => IState } = {
-
-  [Actions.ADD_TODO]: (state: IState, action: Action<Actions.IPayloadAddTodo>) => ({
+  [Actions.ADD_COURSES]: (state: IState, action: Action<Actions.IPayloadAddCourse>) => ({
     message: action.payload.text,
-    todos: state.todos.concat(action.payload.todo)
+    courses: state.courses.concat(action.payload.course)
   }),
-
-  [Actions.UPDATE_FETCH_STATUS]: (state: IState, action: Action<boolean>) => ({
-    isFetching : action.payload
-  }),
-
-  [Actions.LOAD_TODOS]: (state: IState, action) => {
+  // [Actions.UPDATE_FETCH_STATUS]: (state: IState, action: Action<boolean>) => ({
+  //   isFetching : action.payload
+  // }),
+  [Actions.LOAD_COURSES]: (state: IState, action) => {
     if ( action.error ) {
       return {
         message: action.payload.message,
@@ -35,24 +32,11 @@ const reducers: { [key: string]: (state, action: Action<any>) => IState } = {
       };
     }
     return {
-      todos: action.payload,
+      courses: action.payload,
       isFetching: false
     };
   },
 
-  [Actions.TOGGLE_TODOS]: (state: IState, action: Action<number>) => {
-    let todos = state.todos.concat();
-    let id = action.payload;
-    todos.map(todo => {
-      if ( todo.id == id ) {
-        todo.completed = !todo.completed;
-        return;
-      }
-    });
-    return {
-      todos: todos
-    };
-  }
 };
 
 export function reducer(state: IState = initialState, action: Action<any>): IState {

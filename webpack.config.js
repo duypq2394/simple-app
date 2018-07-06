@@ -14,9 +14,8 @@ const config = [
   {
     name: 'React Client Package',
     entry: {
-      'simple-sample' : './src/client/simple-sample',
-      'redux-sample' : './src/client/redux-sample',
-      'member-sample' : './src/client/member-sample'
+      'c-sample' : './src/client/c-sample',
+     
     },
     // watch: true,
     output: {
